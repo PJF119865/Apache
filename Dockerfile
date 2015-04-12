@@ -1,5 +1,5 @@
-FROM ubuntu:trusty
-MAINTAINER Fernando Mayo <fernando@tutum.co>
+FROM phusion/baseimage:0.9.15
+MAINTAINER Peter <peter_f_@hotmail.com>
 # Install base packages
 RUN apt-get update && \
 DEBIAN_FRONTEND=noninteractive apt-get -yq install \
