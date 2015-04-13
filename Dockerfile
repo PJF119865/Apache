@@ -1,8 +1,27 @@
 FROM phusion/baseimage:0.9.15
 MAINTAINER Peter <peter_f_@hotmail.com>
+
+#########################################
+##        ENVIRONMENTAL CONFIG         ##
+#########################################
+
+# Set correct environment variables
+ENV DEBIAN_FRONTEND noninteractive
+ENV HOME            /root
+ENV LC_ALL          C.UTF-8
+ENV LANG            en_US.UTF-8
+ENV LANGUAGE        en_US.UTF-8
+
+# Use baseimage-docker's init system
+CMD ["/sbin/my_init"]
+
+#########################################
+##  FILES, SERVICES AND CONFIGURATION  ##
+#########################################
+
 # Install base packages
 RUN apt-get update && \
-DEBIAN_FRONTEND=noninteractive apt-get -yq install \
+apt-get -yq install \
 curl \
 apache2 \
 libapache2-mod-php5 \
